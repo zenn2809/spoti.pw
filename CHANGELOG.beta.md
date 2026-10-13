@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.23.0-beta.1](https://github.com/zenn2809/spoti.pw/compare/v0.23.0-beta...v0.23.0-beta.1) (2026-10-13)
+
+
+### Features
+
+* add automatic fade-to-next playback option ([8269d3f](https://github.com/zenn2809/spoti.pw/commit/8269d3f0a9115b6dafed5392a9b475a301d3e2ba))
+
 ## [0.23.0-beta](https://github.com/skopevoj/spoti.pw/compare/v0.22.0...v0.23.0-beta) (2026-09-28)
 
 
