@@ -12,6 +12,7 @@
 #import "Native/NowPlayingBar/NowPlayingBar.h"
 #import "Native/Player/NowPlaying.h"
 #import "Shared/Haptics/Haptics.h"
+#import "Shared/AutoFade/AutoFade.h"
 #import "Shared/LiveActivity/LiveActivity.h"
 #import "Redesigned/Lyrics/LyricsText.h"
 #import "Redesigned/Navbar/Navbar.h"
@@ -107,6 +108,7 @@ UIViewController *SGPlayerSettingsPage(void) {
     if (native) [sections addObjectsFromArray:SGNativePlayerScreenSections()];
     // Vibrations hook Spotify's own controls and its audio, so they answer under either look.
     [sections addObjectsFromArray:SGVibrationsSections()];
+    [sections addObjectsFromArray:SGAutoFadeSections()];
 
     return [[SGModPage alloc] initWithTitle:@"Player" intro:SGRestartNote sections:sections footer:nil];
 }
