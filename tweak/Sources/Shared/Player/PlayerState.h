@@ -22,3 +22,6 @@ NSString *SGURIString(id uri);
 void SGAddPlayerStateObserver(id<SGPlayerStateObserver> observer);
 // The last state reported, nil before the player has reported one.
 SPTPlayerState *SGPlayerState(void);
+// Requests Spotify's verified next-track command on the main queue. Returns NO when the player is
+// not available yet; callers must leave playback untouched in that case.
+BOOL SGSkipToNextTrack(void);

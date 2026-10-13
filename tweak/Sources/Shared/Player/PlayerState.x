@@ -11,6 +11,7 @@ NSString *SGURIString(id uri) {
 static NSHashTable<id<SGPlayerStateObserver>> *sg_stateObservers;
 static SPTPlayerState *sg_playerState;
 static NSString *sg_stateKey;
+static __weak id<SPTPlayer> sg_player;
 // Set once the now playing platform has reported; the mod's own observer on the player stands down.
 static BOOL sg_platformReported = NO;
 
@@ -22,6 +23,14 @@ void SGAddPlayerStateObserver(id<SGPlayerStateObserver> observer) {
 
 SPTPlayerState *SGPlayerState(void) {
     return sg_playerState;
+}
+
+BOOL SGSkipToNextTrack(void) {
+    if (!NSThread.isMainThread) return NO;
+    id<SPTPlayer> player = sg_player;
+    if (!player || ![player respondsToSelector:@selector(skipToNextTrack)]) return NO;
+    [player skipToNextTrack];
+    return YES;
 }
 
 // What an observer is told about; the state object itself is new with every position report.
@@ -82,6 +91,7 @@ static SGPlayerObserver *sg_ownObserver;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
+            sg_player = player;
             sg_ownObserver = [SGPlayerObserver new];
             [(id<SPTPlayer>)player addPlayerObserver:sg_ownObserver];
             id state = [player respondsToSelector:@selector(state)] ? [(id<SPTPlayer>)player state] : nil;
