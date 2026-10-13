@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.23.0](https://github.com/zenn2809/spoti.pw/compare/v0.22.0...v0.23.0) (2026-10-13)
+
+
+### Features
+
+* add automatic fade-to-next playback option ([5e7273d](https://github.com/zenn2809/spoti.pw/commit/5e7273d62c8e6f5d48b31bfdf9cbaee91468ddc4))
+
+
+### Fixes
+
+* Remove leftover debug line that reshows update notice every launch ([425d68b](https://github.com/zenn2809/spoti.pw/commit/425d68bc1761e90a6b5828864720511bcef79fa9))
+
 ## [0.22.0](https://github.com/skopevoj/spoti.pw/compare/v0.21.1...v0.22.0) (2026-09-23)
 
 
